@@ -1,6 +1,6 @@
-from enemies import enemy
+from enemies.enemy import Enemy
 
 
-class GoblinScavenger(enemy):
+class GoblinScavenger(Enemy):
     def __init__(self):
         super().__init__(hp=60,attack=15, defense=2, evasion=20)

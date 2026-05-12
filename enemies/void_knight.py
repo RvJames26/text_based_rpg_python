@@ -1,6 +1,7 @@
-from enemies import enemy
+
+from enemies.enemy import Enemy
 
 
-class VoidKnight(enemy):
+class VoidKnight(Enemy):
     def __init__(self):
         super().__init__(hp=250,attack=20, defense=5, evasion=0)
