@@ -24,7 +24,7 @@ class FightMenu:
 
                 if self.current_enemy.hp <= 0:
                     print(f"The {self.current_enemy.__class__.__name__} is dead")
-                    break
+                    return True
 
                 print(f" The {self.current_enemy.__class__.__name__} attacks")
                 if calc.accuracy(self.my_character.evasion):
@@ -36,4 +36,4 @@ class FightMenu:
 
                 if self.my_character.hp <= 0:
                     print(f"Game Over")
-                    break
+                    return False

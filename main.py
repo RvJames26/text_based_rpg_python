@@ -8,13 +8,21 @@ my_game = Start("start")
 my_game.run_menu()
 
 character_selection = CharacterSelection()
-my_character = character_selection.pick_class()
 
-spawner = EnemySpawner()
-current_enemy = spawner.spawn_random_enemies()
+while True:
+    my_character = character_selection.pick_class()
 
-print(f"A {current_enemy.__class__.__name__} appeared")
+    while True:
+        spawner = EnemySpawner()
+        current_enemy = spawner.spawn_random_enemies()
 
-battle_screen = FightMenu(my_character, current_enemy)
-battle_screen.display_menu()
+        print(f"A {current_enemy.__class__.__name__} appeared")
+
+        battle_screen = FightMenu(my_character, current_enemy)
+        battle_screen.display_menu()
+        player_survived = battle_screen.display_menu()
+
+        if player_survived == False:
+            print(f"Game Over")
+            break
 
