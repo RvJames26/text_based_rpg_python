@@ -13,9 +13,8 @@ class FightMenu:
             players_choice = input(f"""
             1. Attack""")
             if players_choice == "1":
-                calc = Calculations()
-                if calc.accuracy(self.current_enemy.evasion):
-                    dmg_dealt = calc.damage(self.my_character.attack_power, self.current_enemy.defense)
+                if Calculations.accuracy(self.current_enemy.evasion):
+                    dmg_dealt = Calculations.damage(self.my_character.attack_power, self.current_enemy.defense)
                     self.current_enemy.hp -= dmg_dealt
                     print(f"Attack Hit, {dmg_dealt} dmg")
 
@@ -27,8 +26,8 @@ class FightMenu:
                     return True
 
                 print(f" The {self.current_enemy.__class__.__name__} attacks")
-                if calc.accuracy(self.my_character.evasion):
-                    enemy_dmg = calc.damage(self.current_enemy.attack, self.my_character.defense)
+                if Calculations.accuracy(self.my_character.evasion):
+                    enemy_dmg = Calculations.damage(self.current_enemy.attack, self.my_character.defense)
                     self.my_character.hp -= enemy_dmg
                     print(f"You took {enemy_dmg} damage")
                 else:

@@ -4,8 +4,9 @@ from main_menu.menu import Start
 from enemies.enemy_spawner import EnemySpawner
 from fight_menu.menu import FightMenu
 
-my_game = Start("start")
-my_game.run_menu()
+my_game = Start()
+if not my_game.run_menu():
+    raise SystemExit
 
 character_selection = CharacterSelection()
 
@@ -19,10 +20,8 @@ while True:
         print(f"A {current_enemy.__class__.__name__} appeared")
 
         battle_screen = FightMenu(my_character, current_enemy)
-        battle_screen.display_menu()
         player_survived = battle_screen.display_menu()
 
-        if player_survived == False:
-            print(f"Game Over")
+        if not player_survived:
             break
 
